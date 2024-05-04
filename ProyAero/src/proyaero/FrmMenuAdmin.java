@@ -16,6 +16,9 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
      */
     public FrmMenuAdmin() {
         initComponents();
+        /*tblVuelos.setVisible(true);
+        tblBoletos.setVisible(false);
+        tblAviones.setVisible(false);*/
         
     }
 
@@ -28,19 +31,18 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblBoletos = new javax.swing.JTable();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblAviones = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblVuelos = new javax.swing.JTable();
-        btnEliminar = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
-        btnModificar = new javax.swing.JButton();
+        tblBoletos = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        tblAviones = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        tblVuelos = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
+        lblTituloTabla = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
+        btbEliminar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnAgregar1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuOpcionesDB = new javax.swing.JMenu();
         btnPanAviones = new javax.swing.JMenu();
@@ -51,58 +53,24 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         menuPanBoletos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
+        setSize(new java.awt.Dimension(50, 50));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 51, 255));
-        jLabel1.setText("Menu De Administrador");
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel2.setText("Tabla de Datos del Aeropuerto");
-
-        tblBoletos.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id", "nombre"
             }
         ));
-        jScrollPane3.setViewportView(tblBoletos);
+        tblBoletos.setViewportView(jTable3);
 
-        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "idAvion", "Matricula", "Modelo", "Fabricante", "Capacidad"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        tblAviones.setMinimumSize(new java.awt.Dimension(60, 64));
-        tblAviones.setPreferredSize(null);
-        jScrollPane1.setViewportView(tblAviones);
-        if (tblAviones.getColumnModel().getColumnCount() > 0) {
-            tblAviones.getColumnModel().getColumn(0).setResizable(false);
-            tblAviones.getColumnModel().getColumn(1).setResizable(false);
-            tblAviones.getColumnModel().getColumn(2).setResizable(false);
-            tblAviones.getColumnModel().getColumn(3).setResizable(false);
-            tblAviones.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -110,44 +78,49 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "A. Origen", "A. Destino", "Hora Salida", "Hora Llegada"
+                "#id", "#id aeropuerto", "tipo avion", "hora"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblVuelos);
-        if (tblVuelos.getColumnModel().getColumnCount() > 0) {
-            tblVuelos.getColumnModel().getColumn(0).setResizable(false);
-            tblVuelos.getColumnModel().getColumn(1).setResizable(false);
+        ));
+        tblAviones.setViewportView(jTable2);
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        btnEliminar.setText("Eliminar Datos");
-
-        btnGuardar.setText("Guardar Datos");
-
-        btnAgregar.setText("Agregar Datos");
-
-        btnModificar.setText("Modificar Datos");
-
-        btnSalir.setText("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Usuario", "# vuelo", "#aeropuerto", "#asiento"
             }
-        });
+        ));
+        tblVuelos.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        lblTituloTabla.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTituloTabla.setText("Tabla de vuelos");
+
+        btnSalir.setText("Cerrar Sesion");
+
+        btbEliminar.setText("Eliminar Vuelo");
+
+        btnModificar.setText("Modificar Vuelo");
+
+        btnAgregar1.setText("Agregar Vuelo");
 
         MenuOpcionesDB.setText("Opciones de BD");
         MenuOpcionesDB.setToolTipText("");
 
         btnPanAviones.setText("Aviones");
 
-        menuPanAviones.setText("Tabla de Aviones");
+        menuPanAviones.setText("Tabla de Modificaciones de Aviones");
         menuPanAviones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPanAvionesActionPerformed(evt);
@@ -159,7 +132,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         jMenu2.setText("Vuelos");
 
-        menuPanVuelos.setText("Tabla de Vuelos");
+        menuPanVuelos.setText("Tabla de Modificaciones de Vuelos");
         menuPanVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPanVuelosActionPerformed(evt);
@@ -171,7 +144,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         jMenu3.setText("Boletos");
 
-        menuPanBoletos.setText("Tabla de Boletos");
+        menuPanBoletos.setText("Tabla de Modificaciones de boletos");
         menuPanBoletos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPanBoletosActionPerformed(evt);
@@ -189,94 +162,65 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 20, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112))
+                    .addComponent(lblTituloTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAgregar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnGuardar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnModificar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnSalir))
-                            .addComponent(jLabel2))
-                        .addGap(270, 270, 270))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
-                    .addGap(20, 20, 20)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(20, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(20, 20, 20)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(20, Short.MAX_VALUE)))
+                        .addGap(220, 220, 220)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tblAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminar)
-                    .addComponent(btnGuardar)
-                    .addComponent(btnAgregar)
-                    .addComponent(btnModificar)
-                    .addComponent(btnSalir))
-                .addGap(10, 10, 10))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(187, 187, 187)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(50, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(187, 187, 187)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(50, Short.MAX_VALUE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(187, 187, 187)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(50, Short.MAX_VALUE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTituloTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(btbEliminar)
+                        .addGap(5, 5, 5)
+                        .addComponent(btnModificar)
+                        .addGap(325, 325, 325)
+                        .addComponent(btnSalir))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(btnAgregar1))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuPanAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanAvionesActionPerformed
-        
+        tblAviones.setVisible(true);
+        tblVuelos.setVisible(false);
+        tblBoletos.setVisible(false);
     }//GEN-LAST:event_menuPanAvionesActionPerformed
 
     private void menuPanVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanVuelosActionPerformed
-        
+        tblVuelos.setVisible(true);
+        tblBoletos.setVisible(false);
+        tblAviones.setVisible(false);
     }//GEN-LAST:event_menuPanVuelosActionPerformed
 
     private void menuPanBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanBoletosActionPerformed
-        
-    }//GEN-LAST:event_menuPanBoletosActionPerformed
 
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        FrmLogin objLogin = new FrmLogin();
-        this.setVisible(false);
-        objLogin.setVisible(true);
-    }//GEN-LAST:event_btnSalirActionPerformed
+        tblBoletos.setVisible(true);
+        tblAviones.setVisible(false);
+        tblVuelos.setVisible(false);
+    }//GEN-LAST:event_menuPanBoletosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,25 +259,24 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuOpcionesDB;
-    private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btbEliminar;
+    private javax.swing.JButton btnAgregar1;
     private javax.swing.JButton btnModificar;
     private javax.swing.JMenu btnPanAviones;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JLabel lblTituloTabla;
     private javax.swing.JMenuItem menuPanAviones;
     private javax.swing.JMenuItem menuPanBoletos;
     private javax.swing.JMenuItem menuPanVuelos;
-    private javax.swing.JTable tblAviones;
-    private javax.swing.JTable tblBoletos;
-    private javax.swing.JTable tblVuelos;
+    private javax.swing.JScrollPane tblAviones;
+    private javax.swing.JScrollPane tblBoletos;
+    private javax.swing.JScrollPane tblVuelos;
     // End of variables declaration//GEN-END:variables
 }
