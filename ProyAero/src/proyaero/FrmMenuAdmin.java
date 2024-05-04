@@ -16,9 +16,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
      */
     public FrmMenuAdmin() {
         initComponents();
-        panAviones.setVisible(false);
-        panVuelos.setVisible(false);
-        panBoletos.setVisible(false);
+        
     }
 
     /**
@@ -32,17 +30,17 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        panAviones = new javax.swing.JLayeredPane();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblBoletos = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAviones = new javax.swing.JTable();
-        panVuelos = new javax.swing.JLayeredPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblVuelos = new javax.swing.JTable();
-        panBoletos = new javax.swing.JLayeredPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tblVuelos1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        btnEliminar = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuOpcionesDB = new javax.swing.JMenu();
         btnPanAviones = new javax.swing.JMenu();
@@ -58,9 +56,21 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 51, 255));
         jLabel1.setText("Menu De Administrador");
 
-        jLabel2.setText("Visualizacion de Aviones");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Tabla de Datos del Aeropuerto");
 
-        panAviones.setEnabled(false);
+        tblBoletos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblBoletos);
 
         tblAviones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,6 +91,8 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        tblAviones.setMinimumSize(new java.awt.Dimension(60, 64));
+        tblAviones.setPreferredSize(null);
         jScrollPane1.setViewportView(tblAviones);
         if (tblAviones.getColumnModel().getColumnCount() > 0) {
             tblAviones.getColumnModel().getColumn(0).setResizable(false);
@@ -89,24 +101,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             tblAviones.getColumnModel().getColumn(3).setResizable(false);
             tblAviones.getColumnModel().getColumn(4).setResizable(false);
         }
-
-        panAviones.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout panAvionesLayout = new javax.swing.GroupLayout(panAviones);
-        panAviones.setLayout(panAvionesLayout);
-        panAvionesLayout.setHorizontalGroup(
-            panAvionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panAvionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
-                .addGap(204, 204, 204))
-        );
-        panAvionesLayout.setVerticalGroup(
-            panAvionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-
-        panVuelos.setEnabled(false);
 
         tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -133,64 +127,18 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             tblVuelos.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        panVuelos.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        btnEliminar.setText("Eliminar Datos");
 
-        javax.swing.GroupLayout panVuelosLayout = new javax.swing.GroupLayout(panVuelos);
-        panVuelos.setLayout(panVuelosLayout);
-        panVuelosLayout.setHorizontalGroup(
-            panVuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panVuelosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        panVuelosLayout.setVerticalGroup(
-            panVuelosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panVuelosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        btnGuardar.setText("Guardar Datos");
 
-        panBoletos.setEnabled(false);
+        btnAgregar.setText("Agregar Datos");
 
-        tblVuelos1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tblVuelos1);
+        btnModificar.setText("Modificar Datos");
 
-        panBoletos.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout panBoletosLayout = new javax.swing.GroupLayout(panBoletos);
-        panBoletos.setLayout(panBoletosLayout);
-        panBoletosLayout.setHorizontalGroup(
-            panBoletosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBoletosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panBoletosLayout.setVerticalGroup(
-            panBoletosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBoletosLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 61, Short.MAX_VALUE))
-        );
-
-        jButton1.setText("Borrar dato");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aviones", "vuelos", "boletos" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
 
@@ -199,7 +147,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         btnPanAviones.setText("Aviones");
 
-        menuPanAviones.setText("Tabla de Modificaciones de Aviones");
+        menuPanAviones.setText("Tabla de Aviones");
         menuPanAviones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPanAvionesActionPerformed(evt);
@@ -211,7 +159,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         jMenu2.setText("Vuelos");
 
-        menuPanVuelos.setText("Tabla de Modificaciones de Vuelos");
+        menuPanVuelos.setText("Tabla de Vuelos");
         menuPanVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPanVuelosActionPerformed(evt);
@@ -223,7 +171,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         jMenu3.setText("Boletos");
 
-        menuPanBoletos.setText("Tabla de Modificaciones de boletos");
+        menuPanBoletos.setText("Tabla de Boletos");
         menuPanBoletos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuPanBoletosActionPerformed(evt);
@@ -241,82 +189,94 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
+                                .addComponent(btnAgregar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(panVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 751, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(jButton1)))
-                .addContainerGap(217, Short.MAX_VALUE))
+                                .addComponent(btnGuardar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnModificar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSalir))
+                            .addComponent(jLabel2))
+                        .addGap(270, 270, 270))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panAviones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(97, Short.MAX_VALUE)))
+                    .addGap(20, 20, 20)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 739, Short.MAX_VALUE)
+                    .addGap(20, 20, 20)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(panBoletos)
-                    .addContainerGap()))
+                    .addGap(20, 20, 20)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(20, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 739, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(20, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(92, 92, 92))
+                    .addComponent(btnEliminar)
+                    .addComponent(btnGuardar)
+                    .addComponent(btnAgregar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnSalir))
+                .addGap(10, 10, 10))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(108, 108, 108)
-                    .addComponent(panAviones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(215, Short.MAX_VALUE)))
+                    .addGap(187, 187, 187)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(50, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(191, Short.MAX_VALUE)
-                    .addComponent(panBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(69, 69, 69)))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(187, 187, 187)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(50, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(187, 187, 187)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(50, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuPanAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanAvionesActionPerformed
-    panAviones.setVisible(true);
-    panVuelos.setVisible(false);
-    panBoletos.setVisible(false);
+        
     }//GEN-LAST:event_menuPanAvionesActionPerformed
 
     private void menuPanVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanVuelosActionPerformed
-    panAviones.setVisible(false);
-    panVuelos.setVisible(true);
-    panBoletos.setVisible(false);
+        
     }//GEN-LAST:event_menuPanVuelosActionPerformed
 
     private void menuPanBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanBoletosActionPerformed
-    panAviones.setVisible(false);
-    panVuelos.setVisible(false);
-    panBoletos.setVisible(true);
+        
     }//GEN-LAST:event_menuPanBoletosActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        FrmLogin objLogin = new FrmLogin();
+        this.setVisible(false);
+        objLogin.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -355,9 +315,12 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuOpcionesDB;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JMenu btnPanAviones;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
@@ -369,11 +332,8 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuPanAviones;
     private javax.swing.JMenuItem menuPanBoletos;
     private javax.swing.JMenuItem menuPanVuelos;
-    private javax.swing.JLayeredPane panAviones;
-    private javax.swing.JLayeredPane panBoletos;
-    private javax.swing.JLayeredPane panVuelos;
     private javax.swing.JTable tblAviones;
+    private javax.swing.JTable tblBoletos;
     private javax.swing.JTable tblVuelos;
-    private javax.swing.JTable tblVuelos1;
     // End of variables declaration//GEN-END:variables
 }

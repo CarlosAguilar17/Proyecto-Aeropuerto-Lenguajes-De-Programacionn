@@ -16,6 +16,7 @@ public class FrmMenuUsuario extends javax.swing.JFrame {
      */
     public FrmMenuUsuario() {
         initComponents();
+        panGenerales.setVisible(false);
     }
 
     /**
@@ -28,30 +29,117 @@ public class FrmMenuUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        panGenerales = new javax.swing.JLayeredPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblGeneral = new javax.swing.JTable();
+        btnSalir = new javax.swing.JButton();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        MenuOpcionesDBU = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        menuPanGenerales = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setText("Este es el menu de Usuario :D ");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel1.setText("Menu de Usuario");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(162, 11, 356, 58);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(jLabel1)
-                .addContainerGap(72, Short.MAX_VALUE))
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setText("Tabla de Datos Generales");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 75, 201, 22);
+
+        tblGeneral.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tblGeneral);
+
+        panGenerales.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout panGeneralesLayout = new javax.swing.GroupLayout(panGenerales);
+        panGenerales.setLayout(panGeneralesLayout);
+        panGeneralesLayout.setHorizontalGroup(
+            panGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panGeneralesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel1)
-                .addContainerGap(201, Short.MAX_VALUE))
+        panGeneralesLayout.setVerticalGroup(
+            panGeneralesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panGeneralesLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
+
+        getContentPane().add(panGenerales);
+        panGenerales.setBounds(0, 108, 708, 103);
+
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir);
+        btnSalir.setBounds(10, 346, 53, 23);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jLayeredPane1);
+        jLayeredPane1.setBounds(10, 217, 698, 100);
+
+        MenuOpcionesDBU.setText("Opciones de BD");
+
+        jMenu2.setText("Datos Generales");
+
+        menuPanGenerales.setText("Tabla Datos Generales");
+        menuPanGenerales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPanGeneralesActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuPanGenerales);
+
+        MenuOpcionesDBU.add(jMenu2);
+
+        jMenuBar1.add(MenuOpcionesDBU);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuPanGeneralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanGeneralesActionPerformed
+        panGenerales.setVisible(true);
+    }//GEN-LAST:event_menuPanGeneralesActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        FrmLogin objLogin = new FrmLogin();
+        this.setVisible(false);
+        objLogin.setVisible(true);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -90,6 +178,16 @@ public class FrmMenuUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu MenuOpcionesDBU;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBoxMenuItem menuPanGenerales;
+    private javax.swing.JLayeredPane panGenerales;
+    private javax.swing.JTable tblGeneral;
     // End of variables declaration//GEN-END:variables
 }
