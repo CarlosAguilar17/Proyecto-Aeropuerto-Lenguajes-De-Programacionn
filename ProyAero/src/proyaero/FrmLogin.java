@@ -13,7 +13,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import javafx.scene.input.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -28,7 +27,6 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
-        
     }
 
     /**
@@ -55,6 +53,8 @@ public class FrmLogin extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         txtTitulo = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lblFondo = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -111,19 +111,12 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setResizable(false);
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblUsuario.setText("Usuario");
 
         lblContraseña.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblContraseña.setText("Contraseña");
-
-        txtUser.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtUserKeyPressed(evt);
-            }
-        });
 
         btnLogin.setText("Ingresar");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -135,11 +128,9 @@ public class FrmLogin extends javax.swing.JFrame {
         txtTitulo.setFont(new java.awt.Font("Arial Rounded MT Bold", 2, 36)); // NOI18N
         txtTitulo.setText("Inicio de sesion");
 
-        txtPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtPasswordKeyPressed(evt);
-            }
-        });
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\Visual Studio 2022\\560216.png")); // NOI18N
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\HP\\Documents\\Visual Studio 2022\\6772234.png")); // NOI18N
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyaero/Fondo_1.jpg"))); // NOI18N
 
@@ -151,21 +142,26 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(lblUsuario)
-                .addGap(9, 9, 9)
+                .addGap(90, 90, 90)
+                .addComponent(jLabel5)
+                .addGap(94, 94, 94)
                 .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(104, 104, 104)
+                .addGap(90, 90, 90)
+                .addComponent(jLabel1)
+                .addGap(14, 14, 14)
                 .addComponent(lblContraseña)
                 .addGap(10, 10, 10)
                 .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(lblUsuario))
             .addComponent(lblFondo)
         );
         layout.setVerticalGroup(
@@ -175,17 +171,20 @@ public class FrmLogin extends javax.swing.JFrame {
                 .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
                     .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
                     .addComponent(lblContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(10, 10, 10)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addComponent(btnLogin))
             .addGroup(layout.createSequentialGroup()
-                .addGap(300, 300, 300)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(210, 210, 210)
+                .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(lblFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
@@ -194,14 +193,13 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Cogido del boton de Inicio de sesion
-        File archivo = new File("C:\\Users\\carlo\\Documents\\NetBeansProjects\\proy\\Proyecto-Aeropuerto-Lenguajes-De-Programacionn-main\\ProyAero\\src\\proyaero\\LoginDB.txt");
+        File archivo = new File("LoginDB.txt");
         try {
             FileReader lector = new FileReader(archivo);        //crea un lector
             BufferedReader lectorBR = new BufferedReader(lector);   //crea un buffer
-            
             int indice= Integer.parseInt(lectorBR.readLine());               //lee la primera linea que es un indice
             
-            for (int i = 1; i<indice*3;i=i+3){
+            for (int i = 1; i<indice*3;i++){
                 String User= lectorBR.readLine(); //lee el usuario
                 if (txtUser.getText().equals(User)){    //Encuentra un Usuario con lo que ingresaste 
                     String Password= lectorBR.readLine();
@@ -216,12 +214,11 @@ public class FrmLogin extends javax.swing.JFrame {
                             this.setVisible(false);
                             new FrmMenuUsuario().setVisible(true);
                         }else {
-                            JOptionPane.showMessageDialog(null, "seguro que quieres eliminar" );
+                            JOptionPane.showMessageDialog(null, "Error inesperado");
                         }
                         
                     }else{
                         JOptionPane.showMessageDialog(null, "Contraseña incorrecta");
-                        txtPassword.grabFocus();
                     }
                 }else {
                     String Password= lectorBR.readLine();
@@ -242,23 +239,37 @@ public class FrmLogin extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void txtPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyPressed
-    if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-                    // Acción a realizar cuando se presiona la tecla Enter
-                    btnLogin.doClick(); // Simula un clic en el botón
-                }        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordKeyPressed
-
-    private void txtUserKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserKeyPressed
-        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
-            txtPassword.grabFocus();
-        }
-    }//GEN-LAST:event_txtUserKeyPressed
-    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmLogin().setVisible(true);
@@ -269,7 +280,9 @@ public class FrmLogin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JInternalFrame jInternalFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

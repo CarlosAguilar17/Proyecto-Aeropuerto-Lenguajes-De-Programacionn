@@ -5,6 +5,13 @@
  */
 package proyaero;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author carlo
@@ -14,16 +21,43 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     /**
      * Creates new form FrmMenuAdmin
      */
-    public FrmMenuAdmin() {
+    public FrmMenuAdmin() throws FileNotFoundException, IOException {
         initComponents();
         IniciarPantalla();
+        ScrollVuelos.setVisible(false);
+        ScrollBoletos.setVisible(false);
+        ScrollAviones.setVisible(false);
+        File AvionesDB = new File("AvionesDB.txt"); //crea archivo aviones
+        File VuelosDB = new File("VuelosDB.txt");   //crea archivo vuelos
+        File BoletosDB = new File("BoletosDB.txt");
+        
+        FileReader lectorAviones = new FileReader(AvionesDB);        //crea un Lector para Aviones
+        BufferedReader lectorBRAviones = new BufferedReader(lectorAviones);  
+        FileReader lectorVuelos = new FileReader(VuelosDB);        //crea un Lector para Vuelos
+        BufferedReader lectorBRVuelos = new BufferedReader(lectorVuelos);  
+        FileReader lectorBoletos = new FileReader(BoletosDB);        //crea un Lector para Boletos
+        BufferedReader lectorBRBoletos = new BufferedReader(lectorBoletos);
+        DefaultTableModel ModeloAviones = (DefaultTableModel)tblAviones.getModel();
+
+
+        int indice= Integer.parseInt(lectorBRAviones.readLine());
+        for (int i = 1; i<indice*4;i=i+4){
+            String Dato1= lectorBRAviones.readLine();
+            String Dato2= lectorBRAviones.readLine();
+            String Dato3= lectorBRAviones.readLine();
+            String Dato4=lectorBRAviones.readLine();
+            ModeloAviones.addRow(new Object[] {Dato1,Dato2, Dato3,Dato4});
+            
+        }
+        
+
         
     }
     public void IniciarPantalla(){
         //las tablas invisibles
-        tblVuelos.setVisible(false);
-        tblBoletos.setVisible(false);
-        tblAviones.setVisible(false);
+        ScrollVuelos.setVisible(false);
+        ScrollBoletos.setVisible(false);
+        ScrollAviones.setVisible(false);
         //los botones iniciales
         btnAgregar.setVisible(false);
         btnModificar.setVisible(false);
@@ -55,12 +89,12 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        tblBoletos = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        tblAviones = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        tblVuelos = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ScrollBoletos = new javax.swing.JScrollPane();
+        tblBoletos = new javax.swing.JTable();
+        ScrollAviones = new javax.swing.JScrollPane();
+        tblAviones = new javax.swing.JTable();
+        ScrollVuelos = new javax.swing.JScrollPane();
+        tblVuelos = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         lblTituloTabla = new javax.swing.JLabel();
         lblTitulo = new javax.swing.JLabel();
@@ -93,7 +127,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(50, 50));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblBoletos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -104,11 +138,11 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
                 "id", "nombre"
             }
         ));
-        tblBoletos.setViewportView(jTable3);
+        ScrollBoletos.setViewportView(tblBoletos);
 
-        getContentPane().add(tblBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
+        getContentPane().add(ScrollBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblAviones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -118,15 +152,23 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             new String [] {
                 "#id", "#id aeropuerto", "tipo avion", "hora"
             }
-        ));
-        tblAviones.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(3).setResizable(false);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        ScrollAviones.setViewportView(tblAviones);
+        if (tblAviones.getColumnModel().getColumnCount() > 0) {
+            tblAviones.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        getContentPane().add(tblAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
+        getContentPane().add(ScrollAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -137,12 +179,12 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
                 "Usuario", "# vuelo", "#aeropuerto", "#asiento"
             }
         ));
-        tblVuelos.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
+        ScrollVuelos.setViewportView(tblVuelos);
+        if (tblVuelos.getColumnModel().getColumnCount() > 0) {
+            tblVuelos.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        getContentPane().add(tblVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
+        getContentPane().add(ScrollVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 20, 10, 480));
@@ -219,7 +261,7 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
                 btnCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 437, 102, -1));
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 102, -1));
 
         btnModificar.setText("Modificar");
         btnModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -278,25 +320,25 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private void MenuPanAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPanAvionesActionPerformed
         lblTituloTabla.setVisible(true);
         lblTituloTabla.setText("Tabla Aviones");
-        tblAviones.setVisible(true);
-        tblVuelos.setVisible(false);
-        tblBoletos.setVisible(false);
+        ScrollAviones.setVisible(true);
+        ScrollVuelos.setVisible(false);
+        ScrollBoletos.setVisible(false);
     }//GEN-LAST:event_MenuPanAvionesActionPerformed
 
     private void MenuPanVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPanVuelosActionPerformed
         lblTituloTabla.setVisible(true);
         lblTituloTabla.setText("Tabla Vuelos");
-        tblVuelos.setVisible(true);
-        tblBoletos.setVisible(false);
-        tblAviones.setVisible(false);
+        ScrollVuelos.setVisible(true);
+        ScrollBoletos.setVisible(false);
+        ScrollAviones.setVisible(false);
     }//GEN-LAST:event_MenuPanVuelosActionPerformed
 
     private void MenuPanBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPanBoletosActionPerformed
         lblTituloTabla.setVisible(true);
         lblTituloTabla.setText("Tabla Boletos");
-        tblBoletos.setVisible(true);
-        tblAviones.setVisible(false);
-        tblVuelos.setVisible(false);
+        ScrollBoletos.setVisible(true);
+        ScrollAviones.setVisible(false);
+        ScrollVuelos.setVisible(false);
     }//GEN-LAST:event_MenuPanBoletosActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -383,13 +425,9 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmMenuAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FrmMenuAdmin().setVisible(true);
-            }
-        });
+      
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -397,6 +435,9 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuPanAviones;
     private javax.swing.JMenuItem MenuPanBoletos;
     private javax.swing.JMenuItem MenuPanVuelos;
+    private javax.swing.JScrollPane ScrollAviones;
+    private javax.swing.JScrollPane ScrollBoletos;
+    private javax.swing.JScrollPane ScrollVuelos;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAgregarElemento;
     private javax.swing.JButton btnCancelar;
@@ -407,18 +448,15 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnSalir;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JLabel lblDato1;
     private javax.swing.JLabel lblDato2;
     private javax.swing.JLabel lblDato3;
     private javax.swing.JLabel lblDato4;
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloTabla;
-    private javax.swing.JScrollPane tblAviones;
-    private javax.swing.JScrollPane tblBoletos;
-    private javax.swing.JScrollPane tblVuelos;
+    private javax.swing.JTable tblAviones;
+    private javax.swing.JTable tblBoletos;
+    private javax.swing.JTable tblVuelos;
     private javax.swing.JTextField txtDato1;
     private javax.swing.JTextField txtDato2;
     private javax.swing.JTextField txtDato3;
