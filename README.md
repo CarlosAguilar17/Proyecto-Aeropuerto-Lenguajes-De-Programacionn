@@ -1,5 +1,8 @@
 proyecto de Lenguajes de programacion II 
-Asesor 
+
+Asesor: Oscar Daniel Perez Piñon
+Participantes:
+Carlos Alejandro Aguilar Loaiza 334467
 
 To do: 
 -Lectura de la base de datos en ambas pantallas
