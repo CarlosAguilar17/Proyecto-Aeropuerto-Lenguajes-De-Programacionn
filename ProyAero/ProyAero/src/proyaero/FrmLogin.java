@@ -193,7 +193,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // Cogido del boton de Inicio de sesion
-        File archivo = new File("C:\\Users\\HP\\Documents\\Sexto semestre\\Lenguajes de Programacion III\\Proyecto Aeropuerto\\Proyecto-Aeropuerto\\LoginDB.txt");
+        File archivo = new File("C:\\Users\\HP\\Documents\\Sexto semestre\\Lenguajes de Programacion III\\Proyecto Aeropuerto\\ProyAero\\LoginDB.txt");
         try {
             FileReader lector = new FileReader(archivo);        //crea un lector
             BufferedReader lectorBR = new BufferedReader(lector);   //crea un buffer
