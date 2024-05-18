@@ -16,12 +16,36 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
      */
     public FrmMenuAdmin() {
         initComponents();
-        /*tblVuelos.setVisible(true);
-        tblBoletos.setVisible(false);
-        tblAviones.setVisible(false);*/
+        IniciarPantalla();
         
     }
-
+    public void IniciarPantalla(){
+        //las tablas invisibles
+        tblVuelos.setVisible(false);
+        tblBoletos.setVisible(false);
+        tblAviones.setVisible(false);
+        //los botones iniciales
+        btnAgregar.setVisible(false);
+        btnModificar.setVisible(false);
+        btnEliminar.setVisible(false);
+        btnCancelar.setVisible(false);
+        btnAgregarElemento.setVisible(true);
+        btnModificarElemento.setVisible(true);
+        btnEliminarElemento.setVisible(true);
+        //Titulos
+        lblTituloTabla.setVisible(false);
+        lblTitulo.setText("Opciones de BD");
+        //Opciones de datos 1,2,3
+        txtDato1.setVisible(false);
+        txtDato2.setVisible(false);
+        txtDato3.setVisible(false);
+        txtDato4.setVisible(false);
+        lblDato1.setVisible(false);
+        lblDato2.setVisible(false);
+        lblDato3.setVisible(false);
+        lblDato4.setVisible(false);
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,23 +63,35 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         lblTituloTabla = new javax.swing.JLabel();
+        lblTitulo = new javax.swing.JLabel();
+        txtDato1 = new javax.swing.JTextField();
+        txtDato2 = new javax.swing.JTextField();
+        txtDato3 = new javax.swing.JTextField();
+        lblDato1 = new javax.swing.JLabel();
+        lblDato2 = new javax.swing.JLabel();
+        lblDato3 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
-        btbEliminar = new javax.swing.JButton();
+        btnEliminarElemento = new javax.swing.JButton();
+        btnModificarElemento = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
-        btnAgregar1 = new javax.swing.JButton();
+        btnAgregarElemento = new javax.swing.JButton();
+        lblDato4 = new javax.swing.JLabel();
+        txtDato4 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuOpcionesDB = new javax.swing.JMenu();
-        btnPanAviones = new javax.swing.JMenu();
-        menuPanAviones = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        menuPanVuelos = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        menuPanBoletos = new javax.swing.JMenuItem();
+        MenuPanAviones = new javax.swing.JMenuItem();
+        MenuPanVuelos = new javax.swing.JMenuItem();
+        MenuPanBoletos = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
         setSize(new java.awt.Dimension(50, 50));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -69,6 +105,8 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             }
         ));
         tblBoletos.setViewportView(jTable3);
+
+        getContentPane().add(tblBoletos, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,6 +124,8 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             jTable2.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        getContentPane().add(tblAviones, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -102,125 +142,220 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        getContentPane().add(tblVuelos, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 50, 410, 450));
+
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 20, 10, 480));
 
         lblTituloTabla.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblTituloTabla.setText("Tabla de vuelos");
+        getContentPane().add(lblTituloTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 230, 50));
+
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblTitulo.setText("Opciones de BD");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 200, 50));
+
+        txtDato1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDato1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtDato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 130, -1));
+        getContentPane().add(txtDato2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 130, -1));
+        getContentPane().add(txtDato3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 130, -1));
+
+        lblDato1.setText("Dato1");
+        getContentPane().add(lblDato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 20));
+
+        lblDato2.setText("Dato2");
+        getContentPane().add(lblDato2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+
+        lblDato3.setText("Dato3");
+        getContentPane().add(lblDato3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, 20));
 
         btnSalir.setText("Cerrar Sesion");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 475, 210, -1));
 
-        btbEliminar.setText("Eliminar Vuelo");
+        btnEliminarElemento.setText("Eliminar Vuelo");
+        btnEliminarElemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarElementoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminarElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 90, 140, -1));
 
-        btnModificar.setText("Modificar Vuelo");
+        btnModificarElemento.setText("Modificar Vuelo");
+        btnModificarElemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarElementoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnModificarElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 120, 140, -1));
 
-        btnAgregar1.setText("Agregar Vuelo");
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 100, -1));
 
-        MenuOpcionesDB.setText("Opciones de BD");
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, 100, -1));
+
+        btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(122, 437, 102, -1));
+
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 439, 100, -1));
+
+        btnAgregarElemento.setText("Agregar Vuelo");
+        btnAgregarElemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarElementoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregarElemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 60, 140, -1));
+
+        lblDato4.setText("Dato4");
+        getContentPane().add(lblDato4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 20));
+        getContentPane().add(txtDato4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 130, -1));
+
+        MenuOpcionesDB.setText("Mostrar Tablas");
         MenuOpcionesDB.setToolTipText("");
 
-        btnPanAviones.setText("Aviones");
-
-        menuPanAviones.setText("Tabla de Modificaciones de Aviones");
-        menuPanAviones.addActionListener(new java.awt.event.ActionListener() {
+        MenuPanAviones.setText("Tabla de Aviones");
+        MenuPanAviones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuPanAvionesActionPerformed(evt);
+                MenuPanAvionesActionPerformed(evt);
             }
         });
-        btnPanAviones.add(menuPanAviones);
+        MenuOpcionesDB.add(MenuPanAviones);
 
-        MenuOpcionesDB.add(btnPanAviones);
-
-        jMenu2.setText("Vuelos");
-
-        menuPanVuelos.setText("Tabla de Modificaciones de Vuelos");
-        menuPanVuelos.addActionListener(new java.awt.event.ActionListener() {
+        MenuPanVuelos.setText("Tabla de Vuelos");
+        MenuPanVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuPanVuelosActionPerformed(evt);
+                MenuPanVuelosActionPerformed(evt);
             }
         });
-        jMenu2.add(menuPanVuelos);
+        MenuOpcionesDB.add(MenuPanVuelos);
 
-        MenuOpcionesDB.add(jMenu2);
-
-        jMenu3.setText("Boletos");
-
-        menuPanBoletos.setText("Tabla de Modificaciones de boletos");
-        menuPanBoletos.addActionListener(new java.awt.event.ActionListener() {
+        MenuPanBoletos.setText("Tabla de boletos");
+        MenuPanBoletos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuPanBoletosActionPerformed(evt);
+                MenuPanBoletosActionPerformed(evt);
             }
         });
-        jMenu3.add(menuPanBoletos);
-
-        MenuOpcionesDB.add(jMenu3);
+        MenuOpcionesDB.add(MenuPanBoletos);
 
         jMenuBar1.add(MenuOpcionesDB);
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTituloTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btbEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tblAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tblBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tblVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTituloTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(btbEliminar)
-                        .addGap(5, 5, 5)
-                        .addComponent(btnModificar)
-                        .addGap(325, 325, 325)
-                        .addComponent(btnSalir))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(btnAgregar1))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tblAviones, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tblBoletos, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tblVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuPanAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanAvionesActionPerformed
+    private void MenuPanAvionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPanAvionesActionPerformed
+        lblTituloTabla.setVisible(true);
+        lblTituloTabla.setText("Tabla Aviones");
         tblAviones.setVisible(true);
         tblVuelos.setVisible(false);
         tblBoletos.setVisible(false);
-    }//GEN-LAST:event_menuPanAvionesActionPerformed
+    }//GEN-LAST:event_MenuPanAvionesActionPerformed
 
-    private void menuPanVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanVuelosActionPerformed
+    private void MenuPanVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPanVuelosActionPerformed
+        lblTituloTabla.setVisible(true);
+        lblTituloTabla.setText("Tabla Vuelos");
         tblVuelos.setVisible(true);
         tblBoletos.setVisible(false);
         tblAviones.setVisible(false);
-    }//GEN-LAST:event_menuPanVuelosActionPerformed
+    }//GEN-LAST:event_MenuPanVuelosActionPerformed
 
-    private void menuPanBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPanBoletosActionPerformed
-
+    private void MenuPanBoletosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPanBoletosActionPerformed
+        lblTituloTabla.setVisible(true);
+        lblTituloTabla.setText("Tabla Boletos");
         tblBoletos.setVisible(true);
         tblAviones.setVisible(false);
         tblVuelos.setVisible(false);
-    }//GEN-LAST:event_menuPanBoletosActionPerformed
+    }//GEN-LAST:event_MenuPanBoletosActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        this.setVisible(false);
+        new FrmLogin().setVisible(true); 
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        IniciarPantalla();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnAgregarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarElementoActionPerformed
+        btnAgregar.setVisible(true);
+        btnModificar.setVisible(false);
+        btnEliminar.setVisible(false);
+        btnCancelar.setVisible(true);
+        lblTitulo.setText("Menu de Agregado");
+        btnAgregarElemento.setVisible(false);
+        btnModificarElemento.setVisible(false);
+        btnEliminarElemento.setVisible(false);
+    }//GEN-LAST:event_btnAgregarElementoActionPerformed
+
+    private void btnEliminarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarElementoActionPerformed
+        btnAgregar.setVisible(false);
+        btnModificar.setVisible(false);
+        btnEliminar.setVisible(true);
+        btnCancelar.setVisible(true);
+        lblTitulo.setText("Menu de Eliminado");
+        btnAgregarElemento.setVisible(false);
+        btnModificarElemento.setVisible(false);
+        btnEliminarElemento.setVisible(false);
+    }//GEN-LAST:event_btnEliminarElementoActionPerformed
+
+    private void btnModificarElementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarElementoActionPerformed
+        btnAgregar.setVisible(false);
+        btnModificar.setVisible(true);
+        btnEliminar.setVisible(false);
+        btnCancelar.setVisible(true);
+        lblTitulo.setText("Menu de Modificacion");
+        btnAgregarElemento.setVisible(false);
+        btnModificarElemento.setVisible(false);
+        btnEliminarElemento.setVisible(false);
+    }//GEN-LAST:event_btnModificarElementoActionPerformed
+
+    private void txtDato1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDato1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDato1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -259,24 +394,34 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuOpcionesDB;
-    private javax.swing.JButton btbEliminar;
-    private javax.swing.JButton btnAgregar1;
+    private javax.swing.JMenuItem MenuPanAviones;
+    private javax.swing.JMenuItem MenuPanBoletos;
+    private javax.swing.JMenuItem MenuPanVuelos;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnAgregarElemento;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEliminarElemento;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JMenu btnPanAviones;
+    private javax.swing.JButton btnModificarElemento;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JLabel lblDato1;
+    private javax.swing.JLabel lblDato2;
+    private javax.swing.JLabel lblDato3;
+    private javax.swing.JLabel lblDato4;
+    private javax.swing.JLabel lblTitulo;
     private javax.swing.JLabel lblTituloTabla;
-    private javax.swing.JMenuItem menuPanAviones;
-    private javax.swing.JMenuItem menuPanBoletos;
-    private javax.swing.JMenuItem menuPanVuelos;
     private javax.swing.JScrollPane tblAviones;
     private javax.swing.JScrollPane tblBoletos;
     private javax.swing.JScrollPane tblVuelos;
+    private javax.swing.JTextField txtDato1;
+    private javax.swing.JTextField txtDato2;
+    private javax.swing.JTextField txtDato3;
+    private javax.swing.JTextField txtDato4;
     // End of variables declaration//GEN-END:variables
 }
